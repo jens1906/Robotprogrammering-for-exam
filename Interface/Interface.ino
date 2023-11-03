@@ -1,10 +1,13 @@
 #include <Wire.h>
 #include <Zumo32U4.h>
 
+
 Zumo32U4Encoders encoders;
 Zumo32U4IMU imu;
 Zumo32U4ButtonA buttonA;
 Zumo32U4OLED display;
+Zumo32U4Motors motors;
+
 
 
 void setup() {
@@ -91,11 +94,11 @@ void StartChallenge(int ChosenChallenge) {
   switch (ChosenChallenge) {
     case 0:
       NameAndCountdown(ChosenChallenge);
-      
+
       break;
     case 1:
       NameAndCountdown(ChosenChallenge);
-      
+
       break;
     case 2:
       NameAndCountdown(ChosenChallenge);
@@ -115,7 +118,7 @@ void StartChallenge(int ChosenChallenge) {
       break;
     case 6:
       NameAndCountdown(ChosenChallenge);
-
+      CH7_ForwardToLine();
       break;
   }
 }
