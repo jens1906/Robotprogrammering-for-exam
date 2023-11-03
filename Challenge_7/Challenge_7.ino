@@ -77,6 +77,7 @@ void turnSensorReset() {
   turnAngle = 0;
 }
 
+
 //Update gyro sensor kun med værdier fra 0-360
 uint32_t turnSensorUpdate() {
   imu.readGyro();
