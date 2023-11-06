@@ -106,6 +106,7 @@ void StartChallenge(int ChosenChallenge) {
       break;
     case 3:
       NameAndCountdown(ChosenChallenge);
+      CH4_Forward_Distance(Choose_Distance());
 
       break;
     case 4:
