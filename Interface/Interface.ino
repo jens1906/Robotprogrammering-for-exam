@@ -5,6 +5,9 @@ Zumo32U4IMU imu;
 Zumo32U4ButtonA buttonA;
 Zumo32U4OLED display;
 Zumo32U4Motors motors;
+Zumo32U4Buzzer buzzer;
+Zumo32U4LineSensors lineSensors;
+Zumo32U4Encoders encoders;
 
 
 
@@ -37,7 +40,6 @@ int PickChallenge() {
       if (challenge != 1) {
         display.clear();
         display.print("Task: 2");
-        Serial.println("hey");
       }
       challenge = 1;
     } else if (200 <= EncoderVal && EncoderVal <= 300) {
@@ -96,7 +98,7 @@ void StartChallenge(int ChosenChallenge) {
       break;
     case 1:
       NameAndCountdown(ChosenChallenge);
-
+      CH2_LineFollower();
       break;
     case 2:
       NameAndCountdown(ChosenChallenge);
