@@ -1,12 +1,14 @@
 #include <Wire.h>
 #include <Zumo32U4.h>
 
-
-Zumo32U4Encoders encoders;
 Zumo32U4IMU imu;
 Zumo32U4ButtonA buttonA;
 Zumo32U4OLED display;
 Zumo32U4Motors motors;
+Zumo32U4Buzzer buzzer;
+Zumo32U4LineSensors lineSensors;
+Zumo32U4Encoders encoders;
+Zumo32U4ProximitySensors proxSensors;
 
 
 
@@ -39,7 +41,6 @@ int PickChallenge() {
       if (challenge != 1) {
         display.clear();
         display.print("Task: 2");
-        Serial.println("hey");
       }
       challenge = 1;
     } else if (200 <= EncoderVal && EncoderVal <= 300) {
@@ -94,11 +95,11 @@ void StartChallenge(int ChosenChallenge) {
   switch (ChosenChallenge) {
     case 0:
       NameAndCountdown(ChosenChallenge);
-
+      CH1_DriveProximity(Choose_Distance_MAXED(18));
       break;
     case 1:
       NameAndCountdown(ChosenChallenge);
-
+      CH2_LineFollower();
       break;
     case 2:
       NameAndCountdown(ChosenChallenge);
