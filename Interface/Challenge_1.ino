@@ -41,8 +41,8 @@ void CH1_DriveProximity(int Distance) {
     PrintProximityValues();
     DriveStraight();
     Serial.println(HighValue);
-    if (ProximityValues[1] == 19) {
-      CH4_Forward_Distance((abs(Distance-19.5)));
+    if (ProximityValues[1] == 15) {
+      CH4_Forward_Distance((abs(17.5-Distance)));
       Done = 1;
     }
   }

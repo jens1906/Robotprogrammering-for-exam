@@ -95,7 +95,7 @@ void StartChallenge(int ChosenChallenge) {
   switch (ChosenChallenge) {
     case 0:
       NameAndCountdown(ChosenChallenge);
-      CH1_DriveProximity(Choose_Distance_MAXED(18));
+      CH1_DriveProximity(Choose_Distance_MAXED(15));
       break;
     case 1:
       NameAndCountdown(ChosenChallenge);
