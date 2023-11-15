@@ -77,10 +77,9 @@ void lineUp() {
       motors.setSpeeds(0, -speed);
       countsRight = encoders.getCountsRight();
     }
-//    stop();
-//    delay(5000);
-    motors.setSpeeds(speed, speed);
-    delay(5000);
+    stop();
+    delay(1000);
+
   }
 }
 
