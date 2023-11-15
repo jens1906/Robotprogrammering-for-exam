@@ -4,10 +4,10 @@
 const uint16_t maxSpeed = 370;
 
 int16_t lastError = 0;
-float Kmax = 0.4;
-float kp = 0.6 * Kmax;
-float kd = 0.3;  
-float Ki = 0.1;
+float Kmax = 0.8;
+float kp = 0.8;
+float kd = 2;  
+float Ki = 0;
 
 #define NUM_SENSORS 5
 unsigned int lineSensorValues[NUM_SENSORS];
@@ -43,8 +43,8 @@ void lineFollow() {
   int16_t leftSpeed = (int16_t)maxSpeed + speedDifference;
   int16_t rightSpeed = (int16_t)maxSpeed - speedDifference;
 
-  leftSpeed = constrain(leftSpeed, -200, (int16_t)maxSpeed);
-  rightSpeed = constrain(rightSpeed, -200, (int16_t)maxSpeed);
+  leftSpeed = constrain(leftSpeed, -(int16_t)maxSpeed, (int16_t)maxSpeed);
+  rightSpeed = constrain(rightSpeed, -(int16_t)maxSpeed, (int16_t)maxSpeed);
 
   motors.setSpeeds(leftSpeed, rightSpeed);
 }

@@ -12,7 +12,7 @@ void CH7_ForwardToLine() {
   }
   motors.setSpeeds(0, 0);
   ResetEncoders();
-  ResetDrive();
+  ResetDrive(200);
 }
 
 void DriveStraight() {
@@ -27,7 +27,7 @@ void DriveStraight() {
   motors.setSpeeds(ForwardVal[0], ForwardVal[1]);
 }
 
-void ResetDrive() {
-  ForwardVal[0] = 200;
-  ForwardVal[1] = 200;
+void ResetDrive(int speed) {
+  ForwardVal[0] = speed;
+  ForwardVal[1] = speed;
 }

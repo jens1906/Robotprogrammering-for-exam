@@ -8,6 +8,7 @@ Zumo32U4Motors motors;
 Zumo32U4Buzzer buzzer;
 Zumo32U4LineSensors lineSensors;
 Zumo32U4Encoders encoders;
+Zumo32U4ProximitySensors proxSensors;
 
 
 
@@ -94,7 +95,7 @@ void StartChallenge(int ChosenChallenge) {
   switch (ChosenChallenge) {
     case 0:
       NameAndCountdown(ChosenChallenge);
-
+      CH1_DriveProximity(Choose_Distance_MAXED(18));
       break;
     case 1:
       NameAndCountdown(ChosenChallenge);

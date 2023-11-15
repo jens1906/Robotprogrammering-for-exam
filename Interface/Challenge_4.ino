@@ -1,7 +1,6 @@
 #include <Wire.h>
 #include <Zumo32U4.h>
 
-//
 double value = 0;
 float wheelCirc = 12.6;
 
@@ -27,7 +26,7 @@ int CalcDistance(double Left, double Right) {
   return DrivenDistance;
 }
 
-void CH4_Forward_Distance(int Distance) {
+void CH4_Forward_Distance(double Distance) {
   ResetEncoders();
   int DrivenDistance = CalcDistance(EncoderL(), EncoderR());
   while (Distance >= DrivenDistance) {
@@ -37,5 +36,5 @@ void CH4_Forward_Distance(int Distance) {
     delay(5);
   }
   motors.setSpeeds(0, 0);
-  ResetDrive();
+  ResetDrive(200);
 }
