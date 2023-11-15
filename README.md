@@ -7,3 +7,4 @@ It is made by group 170 which consists of
 - Marcus Rødbro(mrodbr23@student.aau.dk)
 - Simon Christian Larsen(sla23@student.aau.dk)
 - Victor Kühlmeier(vkuhlm23@student.aau.dk)
+![alt text]([http://url/to/img.png](https://drive.google.com/file/d/1_SeKCE7tEfVjFE7WyW-csmotuj9Om-kQ/view?usp=sharing)https://drive.google.com/file/d/1_SeKCE7tEfVjFE7WyW-csmotuj9Om-kQ/view?usp=sharing)
