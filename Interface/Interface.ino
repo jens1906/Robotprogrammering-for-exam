@@ -17,6 +17,7 @@ void setup() {
 }
 
 void loop() {
+  ChallengeValues = 0;
   StartChallenge(PickChallenge());
 }
 
@@ -94,7 +95,7 @@ void StartChallenge(int ChosenChallenge) {
   switch (ChosenChallenge) {
     case 0:
       NameAndCountdown(ChosenChallenge);
-      ChallengeValues = Choose_Distance_MAXED(15);
+      ChallengeValues = Choose_Mode_MAXED(15, 0);
       StartLineUp();
       CH1_DriveProximity(ChallengeValues);
       break;
@@ -121,6 +122,7 @@ void StartChallenge(int ChosenChallenge) {
     case 5:
       NameAndCountdown(ChosenChallenge);
       StartLineUp();
+      CH6_Drive_Angle(Choose_Mode_MAXED(90, 1));
 
       break;
     case 6:

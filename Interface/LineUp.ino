@@ -10,6 +10,17 @@ int encoderAverage;
 int counter;
 int LineUp = 0;
 
+void LineUp_Reset_Variabels() {
+  stage = 0;
+  speed = 100;
+  threshold = 1000;
+  countsLeft;
+  countsRight;
+  encoderAverage;
+  counter;
+  LineUp = 0;
+}
+
 void StartLineUp() {
   LineUp = 0;
   lineSensors.initFiveSensors();
@@ -18,9 +29,6 @@ void StartLineUp() {
   }
 }
 
-void readLineSensors() {
-  lineSensors.read(lineSensorValues, QTR_EMITTERS_ON);
-}
 
 
 void lineUp() {

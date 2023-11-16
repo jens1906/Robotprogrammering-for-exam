@@ -7,37 +7,21 @@ bool Done = 0;
 uint16_t CH1_Levels[] = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120 };
 int ProximityValues[4];
 
-void InitiateStuff() {
-  HighValue = 0;
-  Done = 0;
+void CH1_InitiateStuff() {
+  CH1_Reset_Variables();
   proxSensors.initThreeSensors();
-  double time = 375;
-  proxSensors.setPulseOnTimeUs(time);
-  proxSensors.setPulseOffTimeUs(time);
+  proxSensors.setPulseOnTimeUs(375);
+  proxSensors.setPulseOffTimeUs(375);
   proxSensors.setBrightnessLevels(CH1_Levels, sizeof(CH1_Levels));
 }
 
-int Choose_Distance_MAXED(int MAX) {
-  int FormerDisplayed = -1;
-  int Value = 0;
-  ResetEncoders();
-  do {
-    (EncoderR() / 50) < MAX ? Value = EncoderR() / 50 : Value = Value;
-    if (FormerDisplayed != Value) {
-      display.clear();
-      display.print("Distance: ");
-      display.gotoXY(0, 1);
-      display.print(Value);
-      FormerDisplayed = Value;
-    }
-  } while (buttonA.isPressed() == false);
-  ResetDrive(100);
-  delay(1500);
-  return Value;
+void CH1_Reset_Variables() {
+  HighValue = 0;
+  Done = 0;
 }
 
 void CH1_DriveProximity(int Distance) {
-  InitiateStuff();
+  CH1_InitiateStuff();
   GetProximityValues();
   while (Done == 0) {
     GetProximityValues();
