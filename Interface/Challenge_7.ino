@@ -4,6 +4,11 @@
 double ForwardVal[] = { 200, 200 };
 double MotorChange = 0.1;
 
+void CH7_Reset_Values() {
+  ResetDrive(200);
+  MotorChange = 0.1;
+}
+
 void CH7_ForwardToLine() {
   for (int i = 0; i < 500; i++) {
     Encoders();

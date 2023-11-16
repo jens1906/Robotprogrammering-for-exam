@@ -5,6 +5,7 @@ double value = 0;
 float wheelCirc = 12.6;
 
 int Choose_Distance() {
+  ResetEncoders();
   int FormerDisplayed = -1;
   int Value = 0;
   do {

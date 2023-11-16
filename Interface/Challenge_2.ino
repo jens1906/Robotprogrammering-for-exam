@@ -6,11 +6,20 @@ const uint16_t maxSpeed = 370;
 int16_t lastError = 0;
 float Kmax = 0.8;
 float kp = 0.8;
-float kd = 2;  
+float kd = 2;
 float Ki = 0;
 
 #define NUM_SENSORS 5
 unsigned int lineSensorValues[NUM_SENSORS];
+
+void CH2_Reset_Variables() {
+  lastError = 0;
+  Kmax = 0.8;
+  kp = 0.8;
+  kd = 2;
+  Ki = 0;
+}
+
 
 void printBar(uint8_t height) {
   if (height > 8) { height = 8; }
@@ -63,8 +72,11 @@ void Linesetup() {
 }
 
 void CH2_LineFollower() {
+  CH2_Reset_Variables();
   Linesetup();
   while (buttonA.isPressed() == false) {
     lineFollow();
   }
+    motors.setSpeeds(0, 0);
+    delay(200);
 }
