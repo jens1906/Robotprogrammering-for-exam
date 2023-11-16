@@ -10,10 +10,9 @@ Zumo32U4LineSensors lineSensors;
 Zumo32U4Encoders encoders;
 Zumo32U4ProximitySensors proxSensors;
 
-
+int ChallengeValues = 0;
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
 }
 
@@ -95,7 +94,9 @@ void StartChallenge(int ChosenChallenge) {
   switch (ChosenChallenge) {
     case 0:
       NameAndCountdown(ChosenChallenge);
-      CH1_DriveProximity(Choose_Distance_MAXED(18));
+      ChallengeValues = Choose_Distance_MAXED(15);
+      StartLineUp();
+      CH1_DriveProximity(ChallengeValues);
       break;
     case 1:
       NameAndCountdown(ChosenChallenge);
@@ -103,23 +104,28 @@ void StartChallenge(int ChosenChallenge) {
       break;
     case 2:
       NameAndCountdown(ChosenChallenge);
+      StartLineUp();
 
       break;
     case 3:
       NameAndCountdown(ChosenChallenge);
-      CH4_Forward_Distance(Choose_Distance());
-
+      ChallengeValues = Choose_Distance();
+      StartLineUp();
+      CH4_Forward_Distance(ChallengeValues);
       break;
     case 4:
       NameAndCountdown(ChosenChallenge);
+      StartLineUp();
 
       break;
     case 5:
       NameAndCountdown(ChosenChallenge);
+      StartLineUp();
 
       break;
     case 6:
       NameAndCountdown(ChosenChallenge);
+      StartLineUp();
       CH7_ForwardToLine();
       break;
   }

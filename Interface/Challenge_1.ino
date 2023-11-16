@@ -4,20 +4,23 @@
 int HighValue = 0;
 bool Done = 0;
 
-uint16_t Levels[] = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120 };
+uint16_t CH1_Levels[] = { 10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120 };
 int ProximityValues[4];
 
 void InitiateStuff() {
+  HighValue = 0;
+  Done = 0;
   proxSensors.initThreeSensors();
   double time = 375;
   proxSensors.setPulseOnTimeUs(time);
   proxSensors.setPulseOffTimeUs(time);
-  proxSensors.setBrightnessLevels(Levels, sizeof(Levels));
+  proxSensors.setBrightnessLevels(CH1_Levels, sizeof(CH1_Levels));
 }
 
 int Choose_Distance_MAXED(int MAX) {
   int FormerDisplayed = -1;
   int Value = 0;
+  ResetEncoders();
   do {
     (EncoderR() / 50) < MAX ? Value = EncoderR() / 50 : Value = Value;
     if (FormerDisplayed != Value) {
@@ -41,8 +44,8 @@ void CH1_DriveProximity(int Distance) {
     PrintProximityValues();
     DriveStraight();
     Serial.println(HighValue);
-    if (ProximityValues[1] == 19) {
-      CH4_Forward_Distance((abs(Distance-19.5)));
+    if (ProximityValues[1] == 15) {
+      CH4_Forward_Distance((abs(17.5 - Distance)));
       Done = 1;
     }
   }
