@@ -1,0 +1,5 @@
+{
+    "board": "pololu-a-star:avr:a-star32U4",
+    "port": "COM5",
+    "sketch": "EightCoTest.ino"
+}
