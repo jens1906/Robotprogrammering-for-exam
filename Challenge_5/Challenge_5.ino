@@ -1,3 +1,4 @@
+#include <Wire.h>
 #include <Zumo32U4.h>
 
 Zumo32U4OLED display;
