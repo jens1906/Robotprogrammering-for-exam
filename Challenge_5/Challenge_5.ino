@@ -1,13 +1,18 @@
+#include <Wire.h>
 #include <Zumo32U4.h>
 
-Zumo32U4LCD display;
+Zumo32U4OLED display;
 Zumo32U4ProximitySensors proxSensors;
 Zumo32U4LineSensors lineSensors;
 Zumo32U4Motors motors;
 
 //uint16_t Levels[] = { 20 };
 
-uint16_t lineSensorValues[3] = { 0, 0, 0,};
+uint16_t lineSensorValues[3] = {
+  0,
+  0,
+  0,
+};
 
 int ProximityValues[4];
 
@@ -84,14 +89,18 @@ void GetProximityValues() {
 
 // --- Main program loop
 void loop() {
+  lineSensors.readCalibrated(lineSensorValues);
+  GetProximityValues();
+  display.clear();
+
   switch (state) {
     case 0:
       poleDanceRight();
-      lineSensors.readCalibrated(lineSensorValues);
-      display.clear();
-      display.gotoXY(0, 1);
-      display.print(lineSensorValues[1]);
-      if (lineSensorValues[1] > 800 && line == 0) {
+      Serial.print("Right ");
+      display.gotoXY(0, 0);
+      display.print("Right");
+
+      if (lineSensorValues[1] > 350 && line == 0) {
         line = !line;
       }
       switch (line) {
@@ -101,23 +110,46 @@ void loop() {
           nextPole();
           break;
       }
-      Serial.println(line);
       break;
     case 1:
       poleDanceLeft();
-      lineSensors.readCalibrated(lineSensorValues);
-      Serial.println(" Left");
-      display.clear();
-      display.gotoXY(0, 1);
-      display.print(lineSensorValues[1]);
+      Serial.print("Left ");
+      display.gotoXY(0, 0);
+      display.print("Left");
+      if (lineSensorValues[1] > 350 && line == 0) {
+        line = !line;
+      }
+      switch (line) {
+        case 0:
+          break;
+        case 1:
+          nextPole();
+          break;
+      }
       break;
     default:
       break;
   }
-  GetProximityValues();
+  if (lineSensorValues[1] > 350) {
+    display.gotoXY(4, 0);
+    display.print(" Line");
+  }
+
+  display.gotoXY(0, 1);
+  display.print((String)line);
+
+
+
+
   Serial.print(ProximityValues[0]);
   Serial.print(" : ");
   Serial.print(ProximityValues[3]);
+  Serial.print(" : ");
+  Serial.print(lineSensorValues[1]);
+  Serial.print(" : ");
+  Serial.print(line);
+
+  Serial.println();
 }
 
 void nextPole() {
