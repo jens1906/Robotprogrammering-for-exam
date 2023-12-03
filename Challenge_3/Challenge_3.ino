@@ -133,5 +133,3 @@ void Print_proximity_values_testing(){
   Serial.println(Proximity_values[3]);
   Serial.println();
 }
-
-
