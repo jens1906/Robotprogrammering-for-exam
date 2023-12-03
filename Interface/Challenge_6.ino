@@ -19,6 +19,23 @@ void CH6_Reset_Variabels() {
   WantedAngle = 0;
   turn = 0;
 }
+void CH6_Initialize() {
+  turnSensorSetup();
+  delay(10);
+  turnSensorReset();
+  lineSensors.initThreeSensors();
+  calibrateLineSensors();
+  delay(500);
+}
+
+void CH6_Drive_Angle(int Degrees) {
+  CH4_Forward_Distance(5);
+  turnByDegree(Degrees);
+  while (readLineSensors() < 300) {
+    DriveStraight();
+  }
+  motors.setSpeeds(0, 0);
+}
 
 int readLineSensors() {
   lineSensors.read(lineSensorValues, QTR_EMITTERS_ON);
@@ -38,23 +55,7 @@ void calibrateLineSensors() {
   display.clear();
 }
 
-void CH6_Initialize() {
-  turnSensorSetup();
-  delay(10);
-  turnSensorReset();
-  lineSensors.initThreeSensors();
-  calibrateLineSensors();
-  delay(500);
-}
 
-void CH6_Drive_Angle(int Degrees) {
-  CH4_Forward_Distance(5);
-  turnByDegree(Degrees);
-  while (readLineSensors() < 300) {
-    DriveStraight();
-  }
-  motors.setSpeeds(0, 0);
-}
 
 void turnSensorReset() {
   gyroLastUpdate = micros();

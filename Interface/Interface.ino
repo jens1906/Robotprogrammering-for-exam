@@ -123,7 +123,6 @@ void StartChallenge(int ChosenChallenge) {
       NameAndCountdown(ChosenChallenge);
       StartLineUp();
       CH6_Drive_Angle(Choose_Mode_MAXED(90, 1));
-
       break;
     case 6:
       NameAndCountdown(ChosenChallenge);
