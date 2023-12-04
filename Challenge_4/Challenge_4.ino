@@ -7,14 +7,11 @@ Zumo32U4OLED display;
 Zumo32U4Motors motors;
 Zumo32U4ButtonA buttonA;
 
-
-double value = 0;
 float wheelCirc = 12.6;
-
-double ForwardVal[] = { 200, 200 };
-double MotorChange = 0.1;
+float ForwardVal[] = { 200, 200 };
+float MotorChange = 0.1;
 float EncoderMultipliers[] = { 1, 0.996 };
-double EncoderArray[2];
+float EncoderArray[2];
 
 
 void setup() {
@@ -62,7 +59,7 @@ void ResetEncoders() {
   encoders.getCountsAndResetRight();
 }
 
-int CalcDistance(double Left, double Right) {
+int CalcDistance(float Left, float Right) {
   int DrivenDistance = (int)(Left / (12 * 75) * wheelCirc + Right / (12 * 75) * wheelCirc) / 2;
   return DrivenDistance;
 }
