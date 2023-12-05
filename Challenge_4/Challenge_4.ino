@@ -14,11 +14,13 @@ float EncoderMultipliers[] = { 1, 0.996 };
 float EncoderArray[2];
 
 
+
 void setup() {
   Serial.begin(9600);
   delay(2000);
   CH4_Forward_Distance(CH4_Choose_Distance());
 }
+
 void loop() {
 }
 

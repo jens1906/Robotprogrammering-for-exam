@@ -22,7 +22,7 @@ void LineUp_Reset_Variabels() {
 }
 
 void StartLineUp() {
-  LineUp_Reset_Variabels();
+  LineUp_Reset_Variabels();½
   LineUp = 0;
   lineSensors.initFiveSensors();
   while (LineUp == 0) {
