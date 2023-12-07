@@ -13,7 +13,8 @@ float wheelCirc = 12.6;
 
 double ForwardVal[] = { 200, 200 };
 double MotorChange = 0.1;
-float EncoderMultipliers[] = { 1, 0.996 };
+//float EncoderMultipliers[] = { 1, 0.996 };
+double EncoderMultipliers[] = { 1, 0.9951183256 };
 double EncoderArray[2];
 
 
