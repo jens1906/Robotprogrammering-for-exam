@@ -17,11 +17,11 @@ uint16_t R_proxSensors;
 uint16_t RC_proxSensors;
 
 //Parameters for the PD regulation - Used method Ziegler & Nichols 
-float ku = 125 //This value is found by testing, when the robot is stable and consistent in it oscillations
-float tu = 0.8 //The oscillation period 
-float td = 0.125*tu
-float kp = 0.8*ku //proportional gain //kp = 100 
-float kd = 0.1*ku*tu //derivative (Compassion between the current- and previous error) //kd=0.1
+float ku = 125; //This value is found by testing, when the robot is stable and consistent in it oscillations
+float tu = 0.8; //The oscillation period 
+float td = 0.125*tu;
+float kp = 0.8*ku; //proportional gain //kp = 100 
+float kd = 0.1*ku*tu; //derivative (Compassion between the current- and previous error) //kd=0.1
 
 int error; //The differens between the sensor values
 int previous_error = 0;
